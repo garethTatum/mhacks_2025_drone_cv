@@ -3,7 +3,7 @@ import cv2
 import math
 
 # Import model
-model = YOLO('best.pt')
+model = YOLO(r"detect\rsc_detection3\weights\best.pt")
 
 # Constants (most are placeholder)
 camera_fov = 60
@@ -68,7 +68,7 @@ while True:
                 max_confidence = confidence
 
                 # Localization
-                distance, angle = estimate_localization(box, rsc_height, camera_fov, frame.shape[1])
+                distance, angle = estimate_localization((x1, y1, x2, y2), rsc_height, camera_fov, frame.shape[1])
 
             # object details
             org = [x1, y1]
